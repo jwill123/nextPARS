@@ -15,7 +15,7 @@ Then clone this repository
 git clone https://github.com/jwill123/nextPARS.git
 ```
 
-Now, ensure the necessary python packages are installed, and can be found in the `$PYTHONPATH` environment variable by running the script packages_for_nextPARS.sh in the nextPARS directory.
+Now, ensure the necessary python packages are installed, and can be found in the `$PYTHONPATH` environment variable by running the script [packages_for_nextPARS.sh in the nextPARS directory](https://github.com/jwill123/nextPARS/blob/main/conf/packages_for_nextPARS.sh).
 
 ```bash
 cd nextPARS/conf
@@ -81,7 +81,7 @@ python get_combined_score.py -i test_37 -inDir nextPARS/data/PARSParser_outputs/
 
 
 ### RNN classifier (already incorporated into the nextPARS scores above)
-To run the RNN classifier separately, using a different experimental score input (in .tab format), it can be run like so:
+To run the RNN classifier separately, using a different experimental score input (in .tab format), it can be run like so with the [predict2.py](https://github.com/jwill123/nextPARS/blob/main/bin/predict2.py) script:
 
 ```bash
 python predict2.py -f molecule.fasta -p scoreFile.tab -o output.tab
