@@ -1,6 +1,6 @@
 # nextPARS, a novel Illumina-based implementation of in-vitro parallel probing of RNA structures.
 
-Here you will find the scripts necessary to produce the scores described in our paper from fastq files obtained during the experiment.
+Here you will find the scripts necessary to produce the scores described in our [paper](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC5855959/) from fastq files obtained during the experiment.
 
 ### Install Prerequisites
 First install git:
@@ -12,7 +12,7 @@ sudo apt-get install git-all
 Then clone this repository
 
 ```bash
-git clone https://github.com/Gabaldonlab/nextPARS.git
+git clone https://github.com/jwill123/nextPARS.git
 ```
 
 Now, ensure the necessary python packages are installed, and can be found in the `$PYTHONPATH` environment variable by running the script packages_for_nextPARS.sh in the nextPARS directory.
@@ -26,7 +26,7 @@ chmod 775 packages_for_nextPARS.sh
 
 ### Convert fastq to tab
 In order to go from the fastq outputs of the nextPARS experiments to a format that allows us to calculate scores, first map the reads in the fastq files to a reference using the program of your choice.
-Once you have obtained a bam file, use [PARSParser_0.67.b.jar](https://github.com/Gabaldonlab/nextPARS/tree/master/bin/PARSParser_0.67.b.jar).
+Once you have obtained a bam file, use [PARSParser_0.67.b.jar](https://github.com/jwill123/nextPARS/tree/master/bin/PARSParser_0.67.b.jar).
 This program counts the number of reads beginning at each position (which indicates a cut site for the enzyme in the file name) and outputs it in .tab format (count values for each position are separated by semi-colons).
 
 Example usage:
@@ -46,13 +46,13 @@ Also accepts arguments:
 
 
 ### Sample Data
-There are sample data files found in the folder [nextPARS/data](https://github.com/Gabaldonlab/nextPARS/tree/master/data), as well as the necessary fasta files in [nextPARS/data/SEQS/PROBES](https://github.com/Gabaldonlab/nextPARS/tree/master/data/SEQS/PROBES), and the reference structures obtained from PDB in [nextPARS/data/STRUCTURES/REFERENCE_STRUCTURES](https://github.com/Gabaldonlab/nextPARS/tree/master/data/STRUCTURES/REFERENCE_STRUCTURES)
-There are also 2 folders of sample output files from the PARSParser_0.67.b.jar program that can be used as further examples of the nextPARS score calculations described below. These folders are found in [nextPARS/data/PARSParser_outputs](https://github.com/Gabaldonlab/nextPARS/tree/master/data/PARSparser_outputs).
+There are sample data files found in the folder [nextPARS/data](https://github.com/jwill123/nextPARS/tree/master/data), as well as the necessary fasta files in [nextPARS/data/SEQS/PROBES](https://github.com/jwill123/nextPARS/tree/master/data/SEQS/PROBES), and the reference structures obtained from PDB in [nextPARS/data/STRUCTURES/REFERENCE_STRUCTURES](https://github.com/jwill123/nextPARS/tree/master/data/STRUCTURES/REFERENCE_STRUCTURES)
+There are also 2 folders of sample output files from the PARSParser_0.67.b.jar program that can be used as further examples of the nextPARS score calculations described below. These folders are found in [nextPARS/data/PARSParser_outputs](https://github.com/jwill123/nextPARS/tree/master/data/PARSparser_outputs).
 NOTE: these are randomly generated sequences with random enzyme values, so they are just to be used as examples for the usage of the scripts, good results should not be expected with these.
 
 
 ### nextPARS Scores
-To obtain the scores from nextPARS experiments, use the script [get_combined_score.py](https://github.com/Gabaldonlab/nextPARS/tree/master/bin/get_combined_score.py). Sample data for the 5 PDB control structures can be found in the folder nextPARS/data/
+To obtain the scores from nextPARS experiments, use the script [get_combined_score.py](https://github.com/jwill123/nextPARS/tree/master/bin/get_combined_score.py). Sample data for the 5 PDB control structures can be found in the folder nextPARS/data/
 
 There are a number of different command line options in the script, many of which were experimental or exploratory and are not relevant here. The useful ones in this context are the following:
   * Use the -i option [REQUIRED] to indicate the molecule for which you want scores (all available data files will be included in the calculations -- molecule name must match that in the data file names)
